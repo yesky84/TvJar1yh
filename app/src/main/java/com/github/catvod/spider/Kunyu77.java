@@ -37,8 +37,9 @@ public class Kunyu77 extends Spider {
     @Override
     public String homeContent(boolean filter) {
         try {
-            String url = siteUrl + "/api.php/provide/filter";
-            String content = OkHttpUtil.string(url, getHeaders(url));
+            String url = siteUrl + "/api.php/provide/videoDetail?ids=" + ids.get(0);
+            String urlx="/api.php/provide/videoDetail" + ids.get(0);
+            String content = OkHttpUtil.string(url, getHeaders(urlx));
             JSONObject jsonObject = new JSONObject(decryptResponse(content)).getJSONObject("data");
             Iterator<String> keys = jsonObject.keys();
             JSONArray classes = new JSONArray();
